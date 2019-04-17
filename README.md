@@ -1,3 +1,7 @@
+
+Sprint A - Using Flask, json, and functions/routes with get requrests, project will create a Epithet Generator that generates random epithets from a pre-existing dictionary of words.    
+
+
 # Epithet Generator
 
 Create a Flask API to serve random epithets from the [Shakespeare Insult Kit](http://www.pangloss.com/seidel/shake_rule.html).
