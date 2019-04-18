@@ -1,19 +1,14 @@
 from flask import Flask
-from tinydb import Tinydb
+from flask import jsonify
 
 app = Flask(__name__)
-db = Tinydb('data.json')
 
 
 @app.route('/')
 def generate_epithets():
-    # function that randomly generates epithets
-    # return {'epithets':{}}
-    pass
+    return jsonify({'epithets':[]})
 
 @app.route('/vocabulary')
 def vocabulary():
-    # function used to serve the vocabulary to the generate epithets function
-    # return {'vocabulary': {}}
-    pass
+    return jsonify({'vocabulary': {}})
 
