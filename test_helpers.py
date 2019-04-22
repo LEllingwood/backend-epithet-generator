@@ -1,5 +1,8 @@
-from backend_epithet_generator.helpers import EpithetGenerator
-from backend_epithet_generator.helpers import Vocabulary
+import pytest
+
+from backend_epithet_generator.helpers import EpithetGenerator, Vocabulary
+from backend_epithet_generator.app import app 
+
 
 E = EpithetGenerator()
 V = Vocabulary
@@ -15,7 +18,9 @@ def test_read_json_happy():
 
 # sad path:
 def test_read_json_sad():
-    assert isinstance(V.read_json(P), tuple)
+    # use assertion errors here.  
+    with pytest.raises(AssertionError):
+        assert isinstance(V.read_json(P), tuple)
 
 
 # unit test the EpithetGenerator class:  
@@ -26,7 +31,8 @@ def test_select_words_happy():
 
 # # sad path
 def test_select_words_sad():
-    assert len(E.select_words().split()) == 5
+    with pytest.raises(AssertionError):
+        assert len(E.select_words().split()) == 5
 
 
 # # happy path 
@@ -36,5 +42,12 @@ def test_generate_happy():
 
 # sad path
 def test_generate_sad():
-    assert len(E.generate(2)) == 5
+    with pytest.raises(AssertionError):
+        assert len(E.generate(2)) == 5
 
+
+# assertion test
+def test_app():
+    result = app.test_client().get('/')
+    assert result.status_code == 200
+    # assert len(result.)
