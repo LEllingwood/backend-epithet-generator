@@ -1,4 +1,5 @@
 import pytest
+import json
 
 from backend_epithet_generator.helpers import EpithetGenerator, Vocabulary
 from backend_epithet_generator.app import app 
@@ -50,4 +51,8 @@ def test_generate_sad():
 def test_app():
     result = app.test_client().get('/')
     assert result.status_code == 200
-    # assert len(result.)
+    result = result.data.decode()
+    assert isinstance(result, str)
+    data = json.loads(result)
+    assert isinstance(data, dict)
+    assert data["epithets"]
