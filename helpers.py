@@ -23,13 +23,15 @@ class EpithetGenerator:
     def select_words(self):
         data = Vocabulary.read_json("resources/data.json")
         # selects one random word from each column of the list to create epithet
-        epithet = random.choice(data['Column 1']) + random.choice(data['Column 2']) + random.choice(data['Column 3'])
+        epithet = random.choice(data['Column 1']) + " " + random.choice(data['Column 2']) + " " + random.choice(data['Column 3'])
+        # TODO: convert line 26 to f string
+
         return epithet
 
     def generate(self, num):
         # generates a quantity of epithets from a vocabulary file loaded from a path
-        for _ in range(num):
-            self.select_words()
+        return [self.select_words() for _ in range(num)]
 
 
 print(EpithetGenerator().select_words())
+print(EpithetGenerator().generate(2))

@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import jsonify
-from helpers import EpithetGenerator
-from helpers import Vocabulary
+from backend_epithet_generator.helpers import EpithetGenerator
+from backend_epithet_generator.helpers import Vocabulary
 
 app = Flask(__name__)
 
@@ -18,8 +18,7 @@ def vocabulary():
     return jsonify({'vocabulary': result})
 
 
-@app.route('/epithets/<num>')
-def generate_multiple_epithets():
-    result = EpithetGenerator().generate()
+@app.route('/epithets/<int:num>')
+def generate_multiple_epithets(num):
+    result = EpithetGenerator().generate(num)
     return jsonify({'epithets': result})
-

@@ -1,47 +1,40 @@
-# unit test the Vocabulary Class: 
+from backend_epithet_generator.helpers import EpithetGenerator
+from backend_epithet_generator.helpers import Vocabulary
 
+E = EpithetGenerator()
+V = Vocabulary
+P = "resources/data.json"
+
+
+# unit test the Vocabulary Class: 
 # happy path:
 def test_read_json_happy():
-    assert
-    pass
+    assert isinstance(V.read_json(P), dict)
+    # pass
 
 
 # sad path:
 def test_read_json_sad():
-    assert
-    pass
+    assert isinstance(V.read_json(P), tuple)
 
 
 # unit test the EpithetGenerator class:  
-
 # # happy path 
 def test_select_words_happy():
-    assert
-#     assert thing(2) == 4
-#     assert thing(3) == 6
-#     # pass
+    assert len(E.select_words().split()) == 3
 
 
 # # sad path
 def test_select_words_sad():
-#     with pytest.raise(AssertionError):
-#         # the line above catches the error
-#         assert thing(2) == 6
+    assert len(E.select_words().split()) == 5
 
 
 # # happy path 
 def test_generate_happy():
-    assert
-    pass
-#     assert thing(2) == 4
-#     assert thing(3) == 6
+    assert len(E.generate(2)) == 2
 
 
 # sad path
 def test_generate_sad():
-    assert
-    pass
-#     with pytest.raise(AssertionError):
-#         # the line above catches the error
-#         assert thing(2) == 6
+    assert len(E.generate(2)) == 5
 
