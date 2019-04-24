@@ -31,6 +31,9 @@ class EpithetGenerator:
     def generate(self, num):
         # generates a quantity of epithets from a vocabulary file loaded from a path
         return [self.select_words() for _ in range(num)]
+    
+    def random_epithet(self):
+        return [self.select_words() for _ in range(1, random.randint(1, 101))]
 
 
 print(EpithetGenerator().select_words())

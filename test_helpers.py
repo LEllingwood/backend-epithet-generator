@@ -57,4 +57,23 @@ def test_app():
     assert isinstance(data, dict)
     assert data["epithets"]
 
-    result_vocab = app.test_client().get("/vocabulary"):
+
+# assertion test vocab
+def test_vocab():
+    result = app.test_client().get('/vocabulary')
+    assert result.status_code == 200
+    assert result.data.decode()
+
+
+# assertion test epithets/<int>
+def test_epithets():
+    result = app.test_client().get('/epithets/<int:num>')
+#     assert result.status_code == 200
+    assert result.data.decode()
+
+
+# assertion test epithets/random
+def test_random():
+    result = app.test_client().get('/epithets/random')
+    assert result.status_code == 200 
+    assert result.data.decode()

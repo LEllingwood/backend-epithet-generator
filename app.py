@@ -14,7 +14,7 @@ def generate_epithets():
 
 @app.route('/vocabulary')
 def vocabulary():
-    result = Vocabulary().read_json()
+    result = Vocabulary.read_json("resources/data.json")
     return jsonify({'vocabulary': result})
 
 
@@ -23,6 +23,8 @@ def generate_multiple_epithets(num):
     result = EpithetGenerator().generate(num)
     return jsonify({'epithets': result})
 
+
 @app.route('/epithets/random')
 def random_route():
-    result = EpithetGenerator().
+    result = EpithetGenerator().random_epithet()
+    return jsonify({'epithets': result})
