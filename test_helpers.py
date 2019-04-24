@@ -56,3 +56,5 @@ def test_app():
     data = json.loads(result)
     assert isinstance(data, dict)
     assert data["epithets"]
+
+    result_vocab = app.test_client().get("/vocabulary"):
