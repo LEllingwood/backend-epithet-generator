@@ -22,7 +22,3 @@ def vocabulary():
 def generate_multiple_epithets(num):
     result = EpithetGenerator().generate(num)
     return jsonify({'epithets': result})
-
-@app.route('/epithets/random')
-def random_route():
-    result = EpithetGenerator().
