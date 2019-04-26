@@ -14,7 +14,7 @@ def generate_epithets():
 
 @app.route('/vocabulary')
 def vocabulary():
-    result = Vocabulary().read_json()
+    result = Vocabulary.read_json("resources/data.json")
     return jsonify({'vocabulary': result})
 
 
